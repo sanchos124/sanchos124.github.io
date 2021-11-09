@@ -1,0 +1,46 @@
+.comments {
+  min-height: 957px;
+  padding-bottom: 70px;
+  hr {
+    margin-top: 49px;
+    border-bottom: none;
+  }
+  &__comment {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  &__photo {
+    width: 169px;
+    height: 169px;
+    margin-right: 61px;
+    img {
+      max-width: 100%;
+    }
+  }
+  &-messag {
+    max-width: 660px;
+    &__name {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 0.8;
+      text-align: left;
+      color: #0d0d0d;
+    }
+    &__runs {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 300;
+      text-align: left;
+      color: #646464;
+    }
+    &__text {
+      margin-top: 19px;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.2;
+      text-align: left;
+      color: #0d0d0d;
+    }
+  }
+}
