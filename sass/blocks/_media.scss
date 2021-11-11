@@ -205,12 +205,17 @@
   .carousel {
     padding: 10px 0;
     &__slider {
-      width: 300px;
-      min-height: 230px;
+      width: 280px;
+      min-height: 210px;
     }
     &__left,
     &__right {
       height: 10px;
+      &:hover {
+        img {
+          width: 6px;
+        }
+      }
     }
   }
   .catalog {
@@ -233,6 +238,16 @@
       display: flex;
       flex-wrap: wrap;
       padding: 1px 2px;
+    }
+  }
+
+  .modal {
+    width: 320px;
+    padding: 10px;
+    padding-top: 20px;
+    min-height: 300px;
+    &__close {
+      right: 1px;
     }
   }
 }

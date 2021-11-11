@@ -1,3 +1,72 @@
+$(document).ready(function () {
+  $(".catalog-item__link").each(function (i) {
+    $(this).on("click", function (e) {
+      e.preventDefault();
+      $(".catalog-item__content")
+        .eq(i)
+        .toggleClass("catalog-item__content_active");
+      $(".catalog-item__list").eq(i).toggleClass("catalog-item__list_active");
+    });
+  });
+
+  $(".catalog-item__back").each(function (i) {
+    $(this).on("click", function (e) {
+      e.preventDefault();
+      $(".catalog-item__content")
+        .eq(i)
+        .toggleClass("catalog-item__content_active");
+      $(".catalog-item__list").eq(i).toggleClass("catalog-item__list_active");
+    });
+  });
+
+  $("[data-modal=consultation]").on("click", function () {
+    $(".overlay, #consultation").fadeIn("slow");
+  });
+  $(".modal__close").on("click", function () {
+    $(".overlay, #consultation, #order, #thanks").fadeOut("slow");
+  });
+
+  $(".button_mini").each(function (i) {
+    $(this).on("click", function () {
+      $("#order .modal__descr").text($(".catalog-item__subtitle").eq(i).text());
+      $(".overlay, #order").fadeIn("slow");
+    });
+  });
+
+  function valideForm(form) {
+    $(form).validate({
+      rules: {
+        name: {
+          required: true,
+          minlenght: 2,
+        },
+        phone: "required",
+        email: {
+          required: true,
+          email: true,
+        },
+      },
+      messages: {
+        name: {
+          required: "Пожалуйста, введите свое имя",
+          minlenght: jQuery.validator.format("Минимум дожно быть {0} символа"),
+        },
+        phone: "Пожалуйста, введите свой номер телефона",
+        email: {
+          required: "Пожалуйста, введите свою почту",
+          email: "Неправильно введен адрес почты",
+        },
+      },
+    });
+  }
+
+  valideForm("#consultation-form form");
+  valideForm("#consultation form");
+  valideForm("#order form");
+
+  $("input [name=phone]").mask("+7 (999) 999-99-99");
+});
+
 // Забираем все обьекты картинок
 let slides = document.querySelectorAll(".carousel__single");
 // Зарираем текущую ширину слайдера
@@ -99,16 +168,3 @@ tabsBtn.forEach(function (item) {
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 // Подробнее
-
-const linkItem = document.querySelectorAll(".catalog-item__link");
-
-console.log(linkItem);
-linkItem.forEach(function (item) {
-  item.addEventListener("click", function (e) {
-    let temp = item;
-    let i = temp.getAttribute("data-tab");
-    e.preventDefault();
-    console.log(item);
-    console.log(qwe);
-  });
-});
